@@ -106,6 +106,9 @@ echo "---------------------------------" >>/home/ubuntu/AndamentoUserData.Terraf
 
 cd /home/ubuntu/Projeto20/Terraform
 #Usar o Git para faser o Push
-
+cd /home/ubuntu/Projeto20/Terraform/
+git clone https://github.com/crfjunior65/Projeto20G6.git
 cd /home/ubuntu/Projeto20/Docker
+cd /home/ubuntu/Projeto20/Terraform/
+git clone https://github.com/crfjunior65/Projeto20G6.git
 #Usar o Git Para fazer Push
