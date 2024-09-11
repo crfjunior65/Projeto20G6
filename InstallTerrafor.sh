@@ -2,7 +2,7 @@
 # Instalacao Terrafor 
 echo "# Instalacao Terraform, Iniciada..." >>/home/ubuntu/AndamentoUserData.Terraform
 mkdir /home/ubuntu/Install
-mkdir /home/ubuntu/IaC
+# mkdir /home/ubuntu/IaC
 mkdir /home/ubuntu/Projeto20
 mkdir /home/ubuntu/Projeto20/Docker
 mkdir /home/ubuntu/Projeto20/Terraform
@@ -44,6 +44,14 @@ apt update -y
 #  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 #cat /etc/apt/sources.list.d/docker.list
 apt install docker.io docker-buildx docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update -y
+apt upgrade -y
+apt-cache policy docker-ce
+apt install docker-ce -y
+
 usermod -aG docker ubuntu
 #systemctl enable --now docker
 systemctl restart docker.service
@@ -87,3 +95,16 @@ echo "---------------------------------" >>/home/ubuntu/AndamentoUserData.Terraf
 # Copiando Chaves de Acesso
 #cd /home/ubuntu/IaC/
 #aws s3 cp s3://crfjunior/Projeto14/IaC/aws-key .
+
+# Acesso GIT
+echo "# Instalacao GIT, Iniciada..." >>/home/ubuntu/AndamentoUserData.Terraform
+
+echo "# Instalacao GIT, Terminada" >>/home/ubuntu/AndamentoUserData.Terraform
+echo "---------------------------------" >>/home/ubuntu/AndamentoUserData.Terraform
+
+
+cd /home/ubuntu/Projeto20/Terraform
+#Usar o Git para faser o Push
+
+cd /home/ubuntu/Projeto20/Docker
+#Usar o Git Para fazer Push
